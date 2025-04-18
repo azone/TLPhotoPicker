@@ -14,7 +14,7 @@ import MobileCoreServices
 public protocol TLPhotosPickerViewControllerDelegate: AnyObject {
     func dismissPhotoPicker(withPHAssets: [PHAsset])
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset])
-    func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool
+    func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool  
     func dismissComplete()
     func photoPickerDidCancel()
     func canSelectAsset(phAsset: PHAsset) -> Bool
@@ -125,7 +125,11 @@ public enum PopupConfigure {
 
 public struct Platform {
     public static var isSimulator: Bool {
-        return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
+        #endif
     }
 }
 

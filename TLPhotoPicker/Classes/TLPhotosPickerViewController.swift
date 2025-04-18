@@ -14,7 +14,7 @@ import MobileCoreServices
 public protocol TLPhotosPickerViewControllerDelegate: AnyObject {
     func dismissPhotoPicker(withPHAssets: [PHAsset])
     func dismissPhotoPicker(withTLPHAssets: [TLPHAsset])
-    func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool  
+    func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool
     func dismissComplete()
     func photoPickerDidCancel()
     func canSelectAsset(phAsset: PHAsset) -> Bool
